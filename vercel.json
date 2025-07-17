@@ -1,0 +1,7 @@
+{
+  "framework": "vitepress",
+  "root": "frontend",
+  "rewrites": [
+    { "source": "/:path*", "destination": "/:path*" }
+  ]
+}
