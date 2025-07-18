@@ -23,12 +23,12 @@ export const sidebar = [
         "link": "/Solution/296300.md"
       },
       {
-        "text": "Problem 294507",
-        "link": "/Solution/294507.md"
-      },
-      {
         "text": "Problem 289486",
         "link": "/Solution/289486.md"
+      },
+      {
+        "text": "Problem 289483",
+        "link": "/Solution/289483.md"
       },
       {
         "text": "Problem 289482",
@@ -111,6 +111,10 @@ export const sidebar = [
         "link": "/Solution/282851.md"
       },
       {
+        "text": "Problem 282546",
+        "link": "/Solution/282546.md"
+      },
+      {
         "text": "Problem 282543",
         "link": "/Solution/282543.md"
       },
@@ -159,8 +163,8 @@ export const sidebar = [
         "link": "/Solution/276695.md"
       },
       {
-        "text": "Problem 274888",
-        "link": "/Solution/274888.md"
+        "text": "Problem 274793",
+        "link": "/Solution/274793.md"
       },
       {
         "text": "Problem 274789",
@@ -185,6 +189,10 @@ export const sidebar = [
       {
         "text": "Problem 271017",
         "link": "/Solution/271017.md"
+      },
+      {
+        "text": "Problem 271009",
+        "link": "/Solution/271009.md"
       }
     ]
   }
