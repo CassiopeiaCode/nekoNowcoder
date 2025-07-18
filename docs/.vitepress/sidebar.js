@@ -257,6 +257,90 @@ export const sidebar = [
       {
         "text": "Problem 264886",
         "link": "/Solution/264886.md"
+      },
+      {
+        "text": "Problem 264714",
+        "link": "/Solution/264714.md"
+      },
+      {
+        "text": "Problem 264702",
+        "link": "/Solution/264702.md"
+      },
+      {
+        "text": "Problem 264698",
+        "link": "/Solution/264698.md"
+      },
+      {
+        "text": "Problem 264688",
+        "link": "/Solution/264688.md"
+      },
+      {
+        "text": "Problem 259943",
+        "link": "/Solution/259943.md"
+      },
+      {
+        "text": "Problem 259939",
+        "link": "/Solution/259939.md"
+      },
+      {
+        "text": "Problem 259933",
+        "link": "/Solution/259933.md"
+      },
+      {
+        "text": "Problem 259923",
+        "link": "/Solution/259923.md"
+      },
+      {
+        "text": "Problem 259921",
+        "link": "/Solution/259921.md"
+      },
+      {
+        "text": "Problem 259919",
+        "link": "/Solution/259919.md"
+      },
+      {
+        "text": "Problem 252512",
+        "link": "/Solution/252512.md"
+      },
+      {
+        "text": "Problem 252422",
+        "link": "/Solution/252422.md"
+      },
+      {
+        "text": "Problem 252420",
+        "link": "/Solution/252420.md"
+      },
+      {
+        "text": "Problem 252370",
+        "link": "/Solution/252370.md"
+      },
+      {
+        "text": "Problem 252366",
+        "link": "/Solution/252366.md"
+      },
+      {
+        "text": "Problem 252363",
+        "link": "/Solution/252363.md"
+      },
+      {
+        "text": "Problem 251510",
+        "link": "/Solution/251510.md"
+      },
+      {
+        "text": "Problem 251502",
+        "link": "/Solution/251502.md"
+      },
+      {
+        "text": "Problem 251500",
+        "link": "/Solution/251500.md"
+      },
+      {
+        "text": "Problem 251498",
+        "link": "/Solution/251498.md"
+      },
+      {
+        "text": "Problem 251496",
+        "link": "/Solution/251496.md"
       }
     ]
   }
