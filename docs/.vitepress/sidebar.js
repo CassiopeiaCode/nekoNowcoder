@@ -111,12 +111,24 @@ export const sidebar = [
         "link": "/Solution/285796.md"
       },
       {
+        "text": "Problem 282851",
+        "link": "/Solution/282851.md"
+      },
+      {
         "text": "Problem 282543",
         "link": "/Solution/282543.md"
       },
       {
         "text": "Problem 282541",
         "link": "/Solution/282541.md"
+      },
+      {
+        "text": "Problem 282539",
+        "link": "/Solution/282539.md"
+      },
+      {
+        "text": "Problem 282490",
+        "link": "/Solution/282490.md"
       },
       {
         "text": "Problem 278007",
@@ -133,6 +145,10 @@ export const sidebar = [
       {
         "text": "Problem 276701",
         "link": "/Solution/276701.md"
+      },
+      {
+        "text": "Problem 276699",
+        "link": "/Solution/276699.md"
       },
       {
         "text": "Problem 276697",
@@ -287,8 +303,24 @@ export const sidebar = [
         "link": "/Solution/249317.md"
       },
       {
+        "text": "Problem 249268",
+        "link": "/Solution/249268.md"
+      },
+      {
         "text": "Problem 248906",
         "link": "/Solution/248906.md"
+      },
+      {
+        "text": "Problem 248904",
+        "link": "/Solution/248904.md"
+      },
+      {
+        "text": "Problem 247980",
+        "link": "/Solution/247980.md"
+      },
+      {
+        "text": "Problem 247920",
+        "link": "/Solution/247920.md"
       },
       {
         "text": "Problem 225893",
@@ -595,6 +627,10 @@ export const sidebar = [
         "link": "/Solution/208885.md"
       },
       {
+        "text": "Problem 208877",
+        "link": "/Solution/208877.md"
+      },
+      {
         "text": "Problem 207154",
         "link": "/Solution/207154.md"
       },
@@ -647,12 +683,24 @@ export const sidebar = [
         "link": "/Solution/52172.md"
       },
       {
+        "text": "Problem 52171",
+        "link": "/Solution/52171.md"
+      },
+      {
         "text": "Problem 52170",
         "link": "/Solution/52170.md"
       },
       {
         "text": "Problem 52169",
         "link": "/Solution/52169.md"
+      },
+      {
+        "text": "Problem 52168",
+        "link": "/Solution/52168.md"
+      },
+      {
+        "text": "Problem 52166",
+        "link": "/Solution/52166.md"
       },
       {
         "text": "Problem 52165",
