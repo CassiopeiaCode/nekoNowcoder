@@ -263,6 +263,10 @@ export const sidebar = [
         "link": "/Solution/209782.md"
       },
       {
+        "text": "Problem 209778",
+        "link": "/Solution/209778.md"
+      },
+      {
         "text": "Problem 209731",
         "link": "/Solution/209731.md"
       },
