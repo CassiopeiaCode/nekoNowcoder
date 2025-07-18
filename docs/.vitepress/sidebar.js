@@ -281,6 +281,130 @@ export const sidebar = [
       {
         "text": "Problem 209482",
         "link": "/Solution/209482.md"
+      },
+      {
+        "text": "Problem 52025",
+        "link": "/Solution/52025.md"
+      },
+      {
+        "text": "Problem 52024",
+        "link": "/Solution/52024.md"
+      },
+      {
+        "text": "Problem 52023",
+        "link": "/Solution/52023.md"
+      },
+      {
+        "text": "Problem 52022",
+        "link": "/Solution/52022.md"
+      },
+      {
+        "text": "Problem 52021",
+        "link": "/Solution/52021.md"
+      },
+      {
+        "text": "Problem 52020",
+        "link": "/Solution/52020.md"
+      },
+      {
+        "text": "Problem 52016",
+        "link": "/Solution/52016.md"
+      },
+      {
+        "text": "Problem 52010",
+        "link": "/Solution/52010.md"
+      },
+      {
+        "text": "Problem 52009",
+        "link": "/Solution/52009.md"
+      },
+      {
+        "text": "Problem 51700",
+        "link": "/Solution/51700.md"
+      },
+      {
+        "text": "Problem 51673",
+        "link": "/Solution/51673.md"
+      },
+      {
+        "text": "Problem 51642",
+        "link": "/Solution/51642.md"
+      },
+      {
+        "text": "Problem 51641",
+        "link": "/Solution/51641.md"
+      },
+      {
+        "text": "Problem 51640",
+        "link": "/Solution/51640.md"
+      },
+      {
+        "text": "Problem 51630",
+        "link": "/Solution/51630.md"
+      },
+      {
+        "text": "Problem 51629",
+        "link": "/Solution/51629.md"
+      },
+      {
+        "text": "Problem 51610",
+        "link": "/Solution/51610.md"
+      },
+      {
+        "text": "Problem 51608",
+        "link": "/Solution/51608.md"
+      },
+      {
+        "text": "Problem 51606",
+        "link": "/Solution/51606.md"
+      },
+      {
+        "text": "Problem 51605",
+        "link": "/Solution/51605.md"
+      },
+      {
+        "text": "Problem 51600",
+        "link": "/Solution/51600.md"
+      },
+      {
+        "text": "Problem 51562",
+        "link": "/Solution/51562.md"
+      },
+      {
+        "text": "Problem 51560",
+        "link": "/Solution/51560.md"
+      },
+      {
+        "text": "Problem 51546",
+        "link": "/Solution/51546.md"
+      },
+      {
+        "text": "Problem 51545",
+        "link": "/Solution/51545.md"
+      },
+      {
+        "text": "Problem 51465",
+        "link": "/Solution/51465.md"
+      },
+      {
+        "text": "Problem 51464",
+        "link": "/Solution/51464.md"
+      },
+      {
+        "text": "Problem 51463",
+        "link": "/Solution/51463.md"
+      },
+      {
+        "text": "Problem 51460",
+        "link": "/Solution/51460.md"
+      },
+      {
+        "text": "Problem 51449",
+        "link": "/Solution/51449.md"
+      },
+      {
+        "text": "Problem 51410",
+        "link": "/Solution/51410.md"
       }
     ]
   }
