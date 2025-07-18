@@ -311,6 +311,34 @@ export const sidebar = [
         "link": "/Solution/209482.md"
       },
       {
+        "text": "Problem 209480",
+        "link": "/Solution/209480.md"
+      },
+      {
+        "text": "Problem 209465",
+        "link": "/Solution/209465.md"
+      },
+      {
+        "text": "Problem 209459",
+        "link": "/Solution/209459.md"
+      },
+      {
+        "text": "Problem 209449",
+        "link": "/Solution/209449.md"
+      },
+      {
+        "text": "Problem 209439",
+        "link": "/Solution/209439.md"
+      },
+      {
+        "text": "Problem 209438",
+        "link": "/Solution/209438.md"
+      },
+      {
+        "text": "Problem 209436",
+        "link": "/Solution/209436.md"
+      },
+      {
         "text": "Problem 52025",
         "link": "/Solution/52025.md"
       },
