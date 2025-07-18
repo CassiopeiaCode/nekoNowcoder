@@ -399,6 +399,54 @@ export const sidebar = [
         "link": "/Solution/207152.md"
       },
       {
+        "text": "Problem 207149",
+        "link": "/Solution/207149.md"
+      },
+      {
+        "text": "Problem 207146",
+        "link": "/Solution/207146.md"
+      },
+      {
+        "text": "Problem 207140",
+        "link": "/Solution/207140.md"
+      },
+      {
+        "text": "Problem 207139",
+        "link": "/Solution/207139.md"
+      },
+      {
+        "text": "Problem 207135",
+        "link": "/Solution/207135.md"
+      },
+      {
+        "text": "Problem 207127",
+        "link": "/Solution/207127.md"
+      },
+      {
+        "text": "Problem 207123",
+        "link": "/Solution/207123.md"
+      },
+      {
+        "text": "Problem 52174",
+        "link": "/Solution/52174.md"
+      },
+      {
+        "text": "Problem 52173",
+        "link": "/Solution/52173.md"
+      },
+      {
+        "text": "Problem 52172",
+        "link": "/Solution/52172.md"
+      },
+      {
+        "text": "Problem 52170",
+        "link": "/Solution/52170.md"
+      },
+      {
+        "text": "Problem 52169",
+        "link": "/Solution/52169.md"
+      },
+      {
         "text": "Problem 52025",
         "link": "/Solution/52025.md"
       },
