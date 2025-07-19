@@ -1,26 +1,34 @@
 <template>
   <div class="problem-filter-container">
-    <div class="tag-cloud">
-      <span 
-        v-for="tag in uniqueTags" 
-        :key="tag"
-        class="tag"
-        :class="{ active: selectedTags.has(tag) }"
-        @click="toggleTag(tag)"
-      >
-        {{ tag }}
-      </span>
-    </div>
+    <div class="filter-layout">
+      <!-- Left Column: Tags -->
+      <div class="tags-column">
+        <h3>标签筛选</h3>
+        <div class="tag-cloud">
+          <span
+            v-for="tagInfo in sortedTags"
+            :key="tagInfo.name"
+            class="tag"
+            :class="{ active: selectedTags.has(tagInfo.name) }"
+            @click="toggleTag(tagInfo.name)"
+          >
+            {{ tagInfo.name }} ({{ tagInfo.count }})
+          </span>
+        </div>
+      </div>
 
-    <div v-if="filteredProblems.length === 0" class="no-results">
-      <p>没有找到符合条件的题目哦，喵~</p>
+      <!-- Right Column: Problems -->
+      <div class="problems-column">
+        <div v-if="filteredProblems.length === 0" class="no-results">
+          <p>没有找到符合条件的题目哦，喵~</p>
+        </div>
+        <ul v-else class="problem-list">
+          <li v-for="problem in filteredProblems" :key="problem.link">
+            <a :href="withBase(problem.link.replace(/\.md$/, '.html'))">{{ problem.text }}</a>
+          </li>
+        </ul>
+      </div>
     </div>
-
-    <ul class="problem-list">
-      <li v-for="problem in filteredProblems" :key="problem.link">
-        <a :href="withBase(problem.link)">{{ problem.text }}</a>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -33,8 +41,8 @@ import problemTags from './problemTags.json';
 // All problems from the sidebar
 const allProblems = ref([]);
 
-// All unique tags
-const uniqueTags = ref([]);
+// All unique tags with counts
+const sortedTags = ref([]);
 
 // Selected tags for filtering
 const selectedTags = ref(new Set());
@@ -46,12 +54,18 @@ onMounted(() => {
     allProblems.value = sidebar[0].items;
   }
 
-  // Calculate unique tags from the JSON file
-  const tags = new Set();
+  // Calculate unique tags and their counts from the JSON file
+  const tagCounts = {};
   for (const pid in problemTags) {
-    problemTags[pid].forEach(tag => tags.add(tag));
+    problemTags[pid].forEach(tag => {
+      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    });
   }
-  uniqueTags.value = Array.from(tags).sort();
+
+  // Sort tags by count in descending order
+  sortedTags.value = Object.entries(tagCounts)
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count);
 });
 
 // Toggle a tag in the selected set
@@ -88,13 +102,33 @@ const filteredProblems = computed(() => {
   margin-top: 2rem;
 }
 
+.filter-layout {
+  display: flex;
+  gap: 2rem;
+}
+
+.tags-column {
+  flex: 3;
+  min-width: 200px;
+  /* max-width: 300px; */
+  border-right: 1px solid var(--vp-c-divider);
+  padding-right: 2rem;
+}
+
+.tags-column h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.problems-column {
+  flex: 1;
+}
+
 .tag-cloud {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--vp-c-divider);
 }
 
 .tag {
@@ -142,5 +176,18 @@ const filteredProblems = computed(() => {
   text-align: center;
   margin-top: 2rem;
   color: var(--vp-c-text-2);
+}
+
+@media (max-width: 768px) {
+  .filter-layout {
+    flex-direction: column;
+  }
+  .tags-column {
+    border-right: none;
+    border-bottom: 1px solid var(--vp-c-divider);
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+    max-width: 100%;
+  }
 }
 </style>

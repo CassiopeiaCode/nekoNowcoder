@@ -6,7 +6,7 @@ const solutionPathSegment = '/docs/Solution/';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "NekoNowcoder | AI驱动的牛客题解站",
+  title: "NekoNowcoder",
   description: "一个由AI驱动的、专注于牛客网（NowCoder）的题解小站，提供思路清晰、代码可复现的优质题解。",
   base: '/',
   head: [
