@@ -1,6 +1,10 @@
 export const sidebar = [
   {
-    "text": "Solutions",
+    "text": "\u9898\u89e3\u7b5b\u9009",
+    "link": "/Solution/"
+  },
+  {
+    "text": "\u6240\u6709\u9898\u89e3",
     "items": [
       {
         "text": "Problem 296520",
@@ -1174,6 +1178,8 @@ export const sidebar = [
         "text": "Problem 51121",
         "link": "/Solution/51121.md"
       }
-    ]
+    ],
+    "collapsible": true,
+    "collapsed": true
   }
 ];
