@@ -1,6 +1,6 @@
 export const sidebar = [
   {
-    "text": "\u9898\u89e3\u7b5b\u9009",
+    "text": "\u9898\u89e3\u5217\u8868",
     "link": "/Solution/"
   },
   {
