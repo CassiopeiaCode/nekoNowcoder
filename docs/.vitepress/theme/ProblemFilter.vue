@@ -49,9 +49,10 @@ const selectedTags = ref(new Set());
 
 // Load initial data
 onMounted(() => {
-  // Extract problems from the sidebar structure
-  if (sidebar && sidebar[0] && sidebar[0].items) {
-    allProblems.value = sidebar[0].items;
+  // Extract problems from the sidebar structure.
+  // After the change, the collapsible problem list is the second item in the sidebar.
+  if (sidebar && sidebar[1] && sidebar[1].items) {
+    allProblems.value = sidebar[1].items;
   }
 
   // Calculate unique tags and their counts from the JSON file
