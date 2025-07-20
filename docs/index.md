@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "NekoNowcoder"
   text: "一个由AI驱动的牛客网题解小站"
-  tagline: "用猫娘的魔法，点亮你的解题之路 ✨"
+  tagline: "用我的魔法，点亮你的解题之路 ✨"
   image:
     src: /logo.svg
     alt: Moe's Logo
