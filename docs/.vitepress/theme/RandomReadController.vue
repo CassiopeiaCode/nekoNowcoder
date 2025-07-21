@@ -4,7 +4,7 @@
       <p>随机阅读中...</p>
       <div class="controls">
         <label for="speed-control">速度:</label>
-        <input type="range" id="speed-control" min="1" max="100" v-model="store.speed" />
+        <input type="range" id="speed-control" min="1" max="10" v-model="store.speed" />
         <span>{{ store.speed }}</span>
         <button @click="stop">停止</button>
       </div>
@@ -40,18 +40,46 @@ const selectNextProblem = () => {
   router.go(nextProblem.link.replace('.md', '.html'));
 };
 
-const startScrolling = () => {
-  if (scrollInterval) clearInterval(scrollInterval);
+let animationFrameId = null;
 
-  scrollInterval = setInterval(() => {
-    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-    if (scrollTop + clientHeight >= scrollHeight - 2) { // 2px buffer
-      selectNextProblem();
-    } else {
-      window.scrollBy(0, 1);
+const startScrolling = () => {
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
+  }
+
+  let lastTime = 0;
+  const animateScroll = (timestamp) => {
+    if (!store.isActive) {
+      cancelAnimationFrame(animationFrameId);
+      return;
     }
-  }, 110 - store.speed * 10);
+
+    if (!lastTime) {
+      lastTime = timestamp;
+    }
+    const deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
+
+    // Base speed pixels per second at speed 1
+    const baseSpeed = 50;
+    // Exponential growth for speed
+    const scrollAmount = (baseSpeed * Math.pow(1.4, store.speed - 1) * deltaTime) / 1000;
+
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+
+    // A more robust check for the bottom of the page
+    if (scrollTop + clientHeight >= scrollHeight - 5) {
+      selectNextProblem();
+      return; // Stop this animation frame and wait for navigation
+    }
+
+    window.scrollBy(0, scrollAmount);
+    animationFrameId = requestAnimationFrame(animateScroll);
+  };
+
+  animationFrameId = requestAnimationFrame(animateScroll);
 };
+
 
 onMounted(() => {
   if (store.isActive) {
@@ -60,8 +88,8 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  if (scrollInterval) {
-    clearInterval(scrollInterval);
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
   }
 });
 
@@ -69,9 +97,22 @@ watch(() => store.isActive, (isActive) => {
   if (isActive) {
     startScrolling();
   } else {
-    if (scrollInterval) {
-      clearInterval(scrollInterval);
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
     }
+  }
+});
+
+watch(() => store.speed, () => {
+  if (store.isActive) {
+    startScrolling();
+  }
+});
+
+// Watch for page changes to restart scrolling after navigation
+watch(() => page.value.relativePath, () => {
+  if (store.isActive) {
+    startScrolling();
   }
 });
 
