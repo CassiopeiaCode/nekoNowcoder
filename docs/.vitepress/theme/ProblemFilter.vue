@@ -36,7 +36,7 @@ import { ref, computed, onMounted } from 'vue';
 import { withBase, useRouter } from 'vitepress';
 import { sidebar } from '../sidebar.js';
 import problemTags from './problemTags.json';
-import { startRandomRead } from './store.js';
+import { startRandomRead, selectAndGoToNextProblem } from './store.js';
 
 const router = useRouter();
 
@@ -54,15 +54,11 @@ const triggerRandomRead = () => {
     alert('没有可供随机阅读的题目哦！');
     return;
   }
-  // 将当前筛选出的问题列表传递给 store
+  // Initialize the store with the current list of problems and handle stats
   startRandomRead(filteredProblems.value);
 
-  // 从列表中随机选择一个作为起点
-  const randomIndex = Math.floor(Math.random() * filteredProblems.value.length);
-  const firstProblem = filteredProblems.value[randomIndex];
-
-  // 跳转到第一个问题的页面
-  router.go(firstProblem.link.replace('.md', '.html'));
+  // Select the first problem using the new weighted logic and navigate
+  selectAndGoToNextProblem(router);
 };
 
 // Load initial data
