@@ -3,15 +3,12 @@
     <div class="filter-layout">
       <!-- Left Column: Tags -->
       <div class="tags-column">
-        <h3>标签筛选</h3>
+        <div class="tags-header">
+          <h3>标签筛选</h3>
+        </div>
         <div class="tag-cloud">
-          <span
-            v-for="tagInfo in sortedTags"
-            :key="tagInfo.name"
-            class="tag"
-            :class="{ active: selectedTags.has(tagInfo.name) }"
-            @click="toggleTag(tagInfo.name)"
-          >
+          <span v-for="tagInfo in sortedTags" :key="tagInfo.name" class="tag"
+            :class="{ active: selectedTags.has(tagInfo.name) }" @click="toggleTag(tagInfo.name)">
             {{ tagInfo.name }} ({{ tagInfo.count }})
           </span>
         </div>
@@ -29,14 +26,19 @@
         </ul>
       </div>
     </div>
+
+    <button @click="triggerRandomRead" class="random-read-btn">随机阅读</button>
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import { withBase } from 'vitepress';
+import { withBase, useRouter } from 'vitepress';
 import { sidebar } from '../sidebar.js';
 import problemTags from './problemTags.json';
+import { startRandomRead } from './store.js';
+
+const router = useRouter();
 
 // All problems from the sidebar
 const allProblems = ref([]);
@@ -46,6 +48,22 @@ const sortedTags = ref([]);
 
 // Selected tags for filtering
 const selectedTags = ref(new Set());
+
+const triggerRandomRead = () => {
+  if (filteredProblems.value.length === 0) {
+    alert('没有可供随机阅读的题目哦！');
+    return;
+  }
+  // 将当前筛选出的问题列表传递给 store
+  startRandomRead(filteredProblems.value);
+
+  // 从列表中随机选择一个作为起点
+  const randomIndex = Math.floor(Math.random() * filteredProblems.value.length);
+  const firstProblem = filteredProblems.value[randomIndex];
+
+  // 跳转到第一个问题的页面
+  router.go(firstProblem.link.replace('.md', '.html'));
+};
 
 // Load initial data
 onMounted(() => {
@@ -89,9 +107,9 @@ const filteredProblems = computed(() => {
   return allProblems.value.filter(problem => {
     const problemId = problem.link.split('/').pop().replace('.md', '');
     const tagsForProblem = problemTags[problemId] || [];
-    
+
     // Problem must have all selected tags
-    return Array.from(selectedTags.value).every(selectedTag => 
+    return Array.from(selectedTags.value).every(selectedTag =>
       tagsForProblem.includes(selectedTag)
     );
   });
@@ -116,10 +134,32 @@ const filteredProblems = computed(() => {
   padding-right: 2rem;
 }
 
+.tags-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
 .tags-column h3 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-size: 1.1rem;
+}
+
+.random-read-btn {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--vp-c-brand-1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.random-read-btn:hover {
+  background-color: var(--vp-c-brand-soft);
 }
 
 .problems-column {
@@ -183,6 +223,7 @@ const filteredProblems = computed(() => {
   .filter-layout {
     flex-direction: column;
   }
+
   .tags-column {
     border-right: none;
     border-bottom: 1px solid var(--vp-c-divider);
