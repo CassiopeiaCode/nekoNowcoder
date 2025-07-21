@@ -1,5 +1,11 @@
 <template>
-  <div v-if="store.isActive" class="read-controller">
+  <div
+    v-if="store.isActive"
+    class="read-controller"
+    :style="{ opacity: controllerOpacity }"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
+  >
     <div class="controller-content">
       <p>随机阅读中...</p>
       <div class="controls">
@@ -13,7 +19,7 @@
 </template>
 
 <script setup>
-import { watch, onMounted, onUnmounted } from 'vue';
+import { watch, onMounted, onUnmounted, ref } from 'vue';
 import { store, stopRandomRead, selectAndGoToNextProblem } from './store.js';
 import { useRouter, useData } from 'vitepress';
 
@@ -28,6 +34,26 @@ const stop = () => {
 const selectNextProblem = () => {
   selectAndGoToNextProblem(router, page.value.relativePath);
 };
+
+// --- Opacity Logic ---
+const controllerOpacity = ref(1);
+let fadeTimeoutId = null;
+
+const handleMouseEnter = () => {
+  if (fadeTimeoutId) {
+    clearTimeout(fadeTimeoutId);
+    fadeTimeoutId = null;
+  }
+  controllerOpacity.value = 1;
+};
+
+const handleMouseLeave = () => {
+  if (fadeTimeoutId) clearTimeout(fadeTimeoutId);
+  fadeTimeoutId = setTimeout(() => {
+    controllerOpacity.value = 0.05;
+  }, 1000); // Start fading after 1s
+};
+// --- End Opacity Logic ---
 
 let animationFrameId = null;
 let virtualScrollY = 0; // Use a high-precision virtual scroll position
@@ -110,6 +136,8 @@ const startScrolling = () => {
 onMounted(() => {
   if (store.isActive) {
     startScrolling();
+    // Start fadeout timer automatically when component mounts and is active
+    handleMouseLeave();
   }
 });
 
@@ -117,15 +145,20 @@ onUnmounted(() => {
   if (animationFrameId) {
     cancelAnimationFrame(animationFrameId);
   }
+  if (fadeTimeoutId) {
+    clearTimeout(fadeTimeoutId);
+  }
 });
 
 watch(() => store.isActive, (isActive) => {
   if (isActive) {
     startScrolling();
+    handleMouseLeave(); // Start fadeout timer when activated
   } else {
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
     }
+    handleMouseEnter(); // Restore opacity when stopped
   }
 });
 
@@ -163,7 +196,7 @@ watch(() => store.speed, () => {
   padding: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transition: transform 0.3s ease-in-out;
+  transition: opacity 9s linear, transform 0.3s ease-in-out; /* 9s transition for the fade */
 }
 
 .controller-content p {

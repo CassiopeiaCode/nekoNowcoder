@@ -10,6 +10,7 @@ export default defineConfig({
   description: "一个由AI驱动的、专注于牛客网（NowCoder）的题解小站，提供思路清晰、代码可复现的优质题解。",
   base: '/',
   head: [
+    ['link', { rel: 'icon', href: '/logo.svg' }],
     [
       'link',
       { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css' }
