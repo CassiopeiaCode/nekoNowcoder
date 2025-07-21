@@ -4,7 +4,7 @@
       <p>随机阅读中...</p>
       <div class="controls">
         <label for="speed-control">速度:</label>
-        <input type="range" id="speed-control" min="1" max="10" v-model="store.speed" />
+        <input type="range" id="speed-control" min="1" max="100" v-model="store.speed" />
         <span>{{ store.speed }}</span>
         <button @click="stop">停止</button>
       </div>
