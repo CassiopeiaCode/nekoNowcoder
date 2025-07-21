@@ -97,7 +97,7 @@ const startScrolling = () => {
     }
 
     const timeEase = 2000; // 2s for acceleration/deceleration
-    const maxSpeed = 100 * Math.pow(1.6, store.speed - 1);
+    const maxSpeed = 10 * Math.pow(1.6, store.speed - 1);
     const acceleration = maxSpeed / (timeEase / 1000);
     const distEase = 0.5 * acceleration * Math.pow(timeEase / 1000, 2);
 
@@ -196,7 +196,7 @@ watch(() => store.speed, () => {
   padding: 1rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transition: opacity 9s linear, transform 0.3s ease-in-out; /* 9s transition for the fade */
+  transition: opacity 1s linear, transform 0.3s ease-in-out; /* 9s transition for the fade */
 }
 
 .controller-content p {
