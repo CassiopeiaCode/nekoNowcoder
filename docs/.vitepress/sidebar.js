@@ -7,6 +7,50 @@ export const sidebar = [
     "text": "\u6240\u6709\u9898\u89e3",
     "items": [
       {
+        "text": "Problem 298196",
+        "link": "/Solution/298196.md"
+      },
+      {
+        "text": "Problem 297414",
+        "link": "/Solution/297414.md"
+      },
+      {
+        "text": "Problem 297413",
+        "link": "/Solution/297413.md"
+      },
+      {
+        "text": "Problem 297395",
+        "link": "/Solution/297395.md"
+      },
+      {
+        "text": "Problem 297394",
+        "link": "/Solution/297394.md"
+      },
+      {
+        "text": "Problem 297392",
+        "link": "/Solution/297392.md"
+      },
+      {
+        "text": "Problem 297390",
+        "link": "/Solution/297390.md"
+      },
+      {
+        "text": "Problem 297389",
+        "link": "/Solution/297389.md"
+      },
+      {
+        "text": "Problem 297387",
+        "link": "/Solution/297387.md"
+      },
+      {
+        "text": "Problem 296926",
+        "link": "/Solution/296926.md"
+      },
+      {
+        "text": "Problem 296922",
+        "link": "/Solution/296922.md"
+      },
+      {
         "text": "Problem 296520",
         "link": "/Solution/296520.md"
       },
