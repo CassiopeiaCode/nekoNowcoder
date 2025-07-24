@@ -7,8 +7,48 @@ export const sidebar = [
     "text": "\u6240\u6709\u9898\u89e3",
     "items": [
       {
+        "text": "Problem 298285",
+        "link": "/Solution/298285.md"
+      },
+      {
+        "text": "Problem 298284",
+        "link": "/Solution/298284.md"
+      },
+      {
         "text": "Problem 298196",
         "link": "/Solution/298196.md"
+      },
+      {
+        "text": "Problem 297706",
+        "link": "/Solution/297706.md"
+      },
+      {
+        "text": "Problem 297580",
+        "link": "/Solution/297580.md"
+      },
+      {
+        "text": "Problem 297577",
+        "link": "/Solution/297577.md"
+      },
+      {
+        "text": "Problem 297568",
+        "link": "/Solution/297568.md"
+      },
+      {
+        "text": "Problem 297555",
+        "link": "/Solution/297555.md"
+      },
+      {
+        "text": "Problem 297549",
+        "link": "/Solution/297549.md"
+      },
+      {
+        "text": "Problem 297545",
+        "link": "/Solution/297545.md"
+      },
+      {
+        "text": "Problem 297536",
+        "link": "/Solution/297536.md"
       },
       {
         "text": "Problem 297414",
